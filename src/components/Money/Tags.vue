@@ -24,7 +24,46 @@
       <li>食</li>
       <li>住</li>
       <li>行</li>
-
+      <li>衣</li>
+      <li>食</li>
+      <li>住</li>
+      <li>行</li>
+      <li>衣</li>
+      <li>食</li>
+      <li>住</li>
+      <li>行</li>
+      <li>衣</li>
+      <li>食</li>
+      <li>住</li>
+      <li>行</li>
+      <li>衣</li>
+      <li>食</li>
+      <li>住</li>
+      <li>行</li>
+      <li>衣</li>
+      <li>食</li>
+      <li>住</li>
+      <li>行</li>
+      <li>衣</li>
+      <li>食</li>
+      <li>住</li>
+      <li>行</li>
+      <li>衣</li>
+      <li>食</li>
+      <li>住</li>
+      <li>行</li>
+      <li>衣</li>
+      <li>食</li>
+      <li>住</li>
+      <li>行</li>
+      <li>衣</li>
+      <li>食</li>
+      <li>住</li>
+      <li>行</li>
+      <li>衣</li>
+      <li>食</li>
+      <li>住</li>
+      <li>行</li>
     </ul>
   </div>
 </template>
@@ -42,6 +81,11 @@ export default {
     padding: 16px;
     display: flex;
     flex-direction: column-reverse;
+    overflow: auto;
+    &::-webkit-scrollbar{
+      width: 0;
+      height: 0;
+    }
     > .current {
       display: flex;
       flex-wrap: wrap;
