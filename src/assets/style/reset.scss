@@ -6,3 +6,12 @@ a{
   text-decoration: none;
   color: inherit;
 }
+ol, ul{
+  list-style: none;
+}
+button, input{
+  font-size: inherit;
+}
+:focus{
+  outline: none;
+}
