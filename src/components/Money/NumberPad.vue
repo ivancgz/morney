@@ -45,16 +45,16 @@
     }
     remove(){
       if (this.output.length === 1) {
-        this.output = '0'
+        this.output = '0';
       } else {
         this.output = this.output.slice(0,-1);
       }
     }
     clear(){
-      this.output = '0'
+      this.output = '0';
     }
     ok(){
-
+      this.$emit('update:value', this.output);
     }
   }
 </script>
