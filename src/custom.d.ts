@@ -5,5 +5,5 @@ type RecordItem = {
   notes: string
   type: string
   amount: number  // 数据类型 object | string
-  createAt?: Date  // 类 / 构造函数
+  createdAt?: Date  // 类 / 构造函数
 }
