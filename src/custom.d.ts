@@ -8,9 +8,12 @@ type RecordItem = {
   createdAt?: Date  // 类 / 构造函数
 }
 
-interface Window{
+interface Window {
   tagList: Tag[];
-  createTag: (name: string) => void
+  createTag: (name: string) => void;
+  findTag: (id:string) => Tag | undefined;
+  removeTag: (id: string) => boolean;
+  updateTag: (id: string, name: string) => 'success' | 'not found' | 'duplicated'
 }
 
 type Tag = {
@@ -22,6 +25,6 @@ type TagListModel = {
   fetch: () => Tag[]
   create: (name: string) => 'success' | 'duplicated'  // 联合类型
   update: (id: string, name: string) => 'success' | 'not found' | 'duplicated'
-  remove: (id:string) => boolean
+  remove: (id: string) => boolean
   save: () => void
 }
