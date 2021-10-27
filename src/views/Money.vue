@@ -1,6 +1,6 @@
 <template>
   <Layout class-prefix="layout">
-    <NumberPad @update:value="onUpdateAmount" @submit="saveRecord"/>
+    <NumberPad :value.sync="record.amount" @submit="saveRecord"/>
     <Types :value.sync="record.type"/>
     <div class="notes">
       <FormItem field-name="备注" placeholder="在这里输入备注" @update:value="onUpdateNotes"/>
@@ -32,10 +32,6 @@
 
     onUpdateNotes(value: string) {
       this.record.notes = value;
-    }
-
-    onUpdateAmount(value: string) {
-      this.record.amount = parseFloat(value);
     }
 
     saveRecord() {
