@@ -15,6 +15,7 @@
   export default class Types extends Vue{
     @Prop() readonly value!: string;
 
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     selectType(type: string){
       if (type !== '-' && type !== '+'){
         throw new Error('type is unknown');
