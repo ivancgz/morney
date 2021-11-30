@@ -21,10 +21,11 @@ export default class FormItem extends Vue{
   @Prop({required: true}) fieldName!: string;
   @Prop() placeholder?: string;
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   onValueChanged(value: string){
     this.$emit('update:value', value)
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
