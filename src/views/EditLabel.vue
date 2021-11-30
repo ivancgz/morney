@@ -3,7 +3,7 @@
     <div class="navBar">
       <Icon class="leftIcon" name="left" @click="goBack"/>
       <span class="title">编辑标签</span>
-      <span class="rightIcon" />
+      <span class="rightIcon"/>
     </div>
     <div class="form-wrapper">
       <FormItem :value="tag.name"
@@ -24,16 +24,17 @@ import FormItem from '@/components/Money/FormItem.vue';
 import Button from '@/components/Button.vue';
 
 @Component({
-  components: {Button, FormItem}
+  components: {Button, FormItem},
 })
 export default class EditLabel extends Vue {
-  // eslint-disable-next-line no-undef
-  tag?: Tag = undefined;
+  get tag() {
+    return this.$store.state.currentTag;
+  }
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   created() {
-    // TODO
-    // this.tag = store.findTag(this.$route.params.id);
+    const id = this.$route.params.id;
+    this.$store.commit('setCurrentTag', id);
     if (!this.tag) {
       this.$router.replace('/404');
     }
