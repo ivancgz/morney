@@ -24,14 +24,14 @@ import TagHelper from '@/mixins/TagHelper.ts';
 
 @Component({
   components: {Button},
-  computed: {
-    tags() {
-      return this.$store.state.tagList;
-    }
-  }
 })
 // eslint-disable-next-line no-undef
 export default class Labels extends mixins(TagHelper) {
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  get tags() {
+    return this.$store.state.tagList;
+
+  }
   beforeCreate() {
     this.$store.commit('fetchTags');
   }
