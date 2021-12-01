@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <Tabs class-prefix="type" :data-source="recordTypeList" :value.sync="type"/>
-    <Tabs class-prefix="interval" :data-source="intervalList" :value.sync="interval"/>
+    <Tabs class-prefix="interval" :data-source="intervalList" :value.sync="interval" height="48px"/>
     <div>
       type: {{ type }}
       <br>
@@ -19,9 +19,9 @@
         display: none;
       }
     }
-  }
-  ::v-deep .interval-tabs-item {
-    height: 48px;
+    .interval-tabs-item {
+      height: 48px;
+    }
   }
 </style>
 

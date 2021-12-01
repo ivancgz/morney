@@ -1,6 +1,7 @@
 <template>
     <ul class="tabs" :class="{[classPrefix+'-tabs']:classPrefix}">
       <li v-for="item in dataSource" :key="item.value"
+          :style="{height: height}"
           :class="liClass(item)"
           class="tabs-item"
           @click="select(item)">{{ item.text }}
@@ -19,6 +20,7 @@ export default class Tabs extends Vue {
   @Prop({required:true, type: Array}) dataSource!: DataSourceItem[];
   @Prop(String) readonly value!: string;
   @Prop(String) classPrefix?: string;
+  @Prop({type: String, default: '64px'}) height!: string;
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   liClass(item: DataSourceItem) {
@@ -43,7 +45,7 @@ export default class Tabs extends Vue {
   &-item {
     width: 50%;
     line-height: 64px;
-    height: 64px;
+    //height: 64px;
     display: flex;
     justify-content: center;
     align-items: center;
