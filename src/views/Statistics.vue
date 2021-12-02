@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <Tabs class-prefix="type" :data-source="recordTypeList" :value.sync="type"/>
-    <ol>
+    <ol v-if="groupedList.length>0">
       <li v-for="(group, index) in groupedList" :key="index">
         <h3 class="title">{{ beautify(group.title) }} <span>￥{{ group.total }}</span></h3>
         <ol>
@@ -13,6 +13,9 @@
         </ol>
       </li>
     </ol>
+    <div v-else class="noResult">
+      暂无数据
+    </div>
   </Layout>
 </template>
 
@@ -29,7 +32,7 @@ import clone from '@/lib/clone';
 })
 export default class statistics extends Vue {
   tagString(tags: Tag[]) {
-    return tags.length === 0 ? '无' : tags.join(',');
+    return tags.length === 0 ? '无' : tags.map(t => t.name).join('，');
   }
 
   beautify(string: string) {
@@ -54,8 +57,9 @@ export default class statistics extends Vue {
   get groupedList() {
     const {recordList} = this;
     const newList = clone(recordList).filter(r => r.type === this.type).sort((a, b) => dayjs(b.createdAt).valueOf() - dayjs(a.createdAt).valueOf());
-    type Result = {title: string, total?: number, items: RecordItem[]}[]
-    const result:Result = [{title: dayjs(newList[0].createdAt).format('YYYY-MM-DD'), items: [newList[0]]}];
+    if (newList.length === 0) { return [] as Result;}
+    type Result = { title: string, total?: number, items: RecordItem[] }[]
+    const result: Result = [{title: dayjs(newList[0].createdAt).format('YYYY-MM-DD'), items: [newList[0]]}];
     for (let i = 1; i < newList.length; i++) {
       const current = newList[i];
       const last = result[result.length - 1];
@@ -67,7 +71,7 @@ export default class statistics extends Vue {
     }
     result.map(group => {
       group.total = group.items.reduce((sum, item) => sum + item.amount, 0);
-    })
+    });
     return result;
   }
 
@@ -81,10 +85,17 @@ export default class statistics extends Vue {
 </script>
 
 <style scoped lang="scss">
+.noResult {
+  padding: 16px;
+  text-align: center;
+}
+
 ::v-deep .type-tabs-item {
   background: #c4c4c4;
+
   &.selected {
     background: white;
+
     &::after {
       display: none;
     }
