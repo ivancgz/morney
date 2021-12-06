@@ -21,8 +21,8 @@ git commit -m 'deploy'
 
 # 部署到 https://<USERNAME>.github.io/<REPO>
 # GitHub
-# git push -f git@github.com:ivancgz/morney-website.git master:gh-pages
+git push -f git@github.com:ivancgz/morney-website.git master:gh-pages
 # gitee
-git push -f git@gitee.com:ivancgz/morney-website.git master:gh-pages
+# git push -f git@gitee.com:ivancgz/morney-website.git master:gh-pages
 
 cd -

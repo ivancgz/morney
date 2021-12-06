@@ -15,7 +15,7 @@ const recordStore = {
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   createRecord(record: RecordItem) {
     const record2: RecordItem = clone(record);
-    record2.createdAt = new Date().toISOString();
+    record2.createdAt = record2.createdAt || new Date().toISOString();
     this.recordList?.push(record2);
     recordStore.saveRecords();
   }
