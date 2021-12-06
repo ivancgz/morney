@@ -15,9 +15,6 @@ type RecordItem = {
   createdAt?: string  // 类 / 构造函数
 }
 
-interface Window {
-}
-
 type Tag = {
   id: string;
   name: string;

@@ -25,6 +25,3 @@ window.onload = function () {
   }, 200)
 }
 
-if (document.documentElement.clientWidth > 500) {
-  window.alert('请使用手机打开页面，以保证浏览效果');
-}
