@@ -1,6 +1,6 @@
 <template>
-  <svg class="icon" @click="$emit('click', $event)">
-    <use :xlink:href="'#'+name" />
+  <svg class="icon">
+    <use id='iconName' :xlink:href="'#'+name"/>
   </svg>
 </template>
 
@@ -10,7 +10,7 @@
 
   export default {
     props: ['name'],
-    name: 'Icon'
+    name: 'Icon',
   };
 </script>
 

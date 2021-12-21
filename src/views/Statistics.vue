@@ -27,6 +27,10 @@ import recordTypeList from '@/constants/recordTypeList';
 import dayjs from 'dayjs';
 import clone from '@/lib/clone';
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const Echarts: any = require('vue-echarts');
+console.log(Echarts);
+
 @Component({
   components: {Tabs},
 })
